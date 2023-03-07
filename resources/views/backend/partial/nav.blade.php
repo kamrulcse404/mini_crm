@@ -11,10 +11,10 @@
         </li>
     </ul>
 
-    <!-- Right navbar links -->
+    <!-- Right navbar links --> 
     <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('dashboard') }}" class="nav-link">{{ Auth::user()->name }}</a>
+            <a href="" class="nav-link">{{ Auth::user()->name }}</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <form action="{{ route('logout') }}" method="POST">

@@ -11,7 +11,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ route('dashboard') }}" class="nav-link {{ Route::is('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -20,9 +20,9 @@
                 </li>
                 <li class="nav-header">Features</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fa fa-users"></i>
-                        <p> Clients</p>
+                    <a href="{{ route('designation.index') }}" class="nav-link {{ Route::is('designation.index') ? 'active' : '' }}">
+                        <i class="fa fa-star"></i>
+                        <p>Designations</p>
                     </a>
                 </li>
             </ul>
