@@ -28,11 +28,12 @@
 <script src="{{ asset('backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('backend/dist/js/demo.js') }}"></script>
+{{-- <!-- AdminLTE for demo purposes -->
+<script src="{{ asset('backend/dist/js/demo.js') }}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script>
-
+<!-- Sweet Alert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('backend/plugins/datatables/jquery.dataTables.min.js') }}"></script>
@@ -69,3 +70,13 @@
         });
     });
 </script>
+
+@if (Session::has('success'))
+    <script>
+        swal("Great Job !!", "{{ Session::get('success')}}", 'success', {
+            button:true,
+            button:"OK",
+            timer:3000
+        });
+    </script>
+@endif

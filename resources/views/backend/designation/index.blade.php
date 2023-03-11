@@ -3,7 +3,7 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0">Designation Data Table</h1>
+            <h4 class="m-0">Designation Data Table</h4>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -20,7 +20,8 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title" style="color: #7e0e18;">Employee List</h3>
+                    <a href="{{ route('designation.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> New
+                        Designation</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -28,65 +29,29 @@
                         <thead>
                             <tr>
                                 <th>Sl</th>
-                                <th>Employee No</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Department</th>
+                                <th>Designation Name</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>RQEM001</td>
-                                <td>Kamrul Hasan</td>
-                                <td>kamrul@gmail.com</td>
-                                <td>+8801600000000</td>
-                                <td>Backend</td>
-                                <td>
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="options" id="option_b1" autocomplete="off"
-                                                checked=""><i class="fa fa-eye"></i>
-                                        </label>
-                                        <label class="btn btn btn-info">
-                                            <input type="radio" name="options" id="option_b2" autocomplete="off"><i
-                                                class="fa fa-edit"> </i>
-                                        </label>
-                                        <label class="btn btn btn-danger">
-                                            <input type="radio" name="options" id="option_b3" autocomplete="off"><i
-                                                class="fa fa-trash"></i>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>RQEM002</td>
-                                <td>Kamrul Hasan</td>
-                                <td>kamrul@gmail.com</td>
-                                <td>+8801600000000</td>
-                                <td>Backend</td>
-                                <td>
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="options" id="option_b1" autocomplete="off"
-                                                checked=""><i class="fa fa-eye"></i>
-                                        </label>
-                                        <label class="btn btn btn-info">
-                                            <input type="radio" name="options" id="option_b2" autocomplete="off"><i
-                                                class="fa fa-edit"> </i>
-                                        </label>
-                                        <label class="btn btn btn-danger">
-                                            <input type="radio" name="options" id="option_b3" autocomplete="off"><i
-                                                class="fa fa-trash"></i>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach ($designations as $designation)
+                                <tr>
+                                    <td>{{ $designation->id }}</td>
+                                    <td>{{ $designation->name }}</td>
+                                    <td>
+                                        <form action="{{ route('designation.destroy', $designation->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <div class="btn-group">
+                                                <a href="{{ route('designation.edit', $designation->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
 
+                                                <button type="submit" class="btn btn-danger"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -97,3 +62,5 @@
         <!-- /.col -->
     </div>
 @endsection
+
+

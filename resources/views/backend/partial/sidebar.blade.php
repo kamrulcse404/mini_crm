@@ -20,7 +20,7 @@
                 </li>
                 <li class="nav-header">Features</li>
                 <li class="nav-item">
-                    <a href="{{ route('designation.index') }}" class="nav-link {{ Route::is('designation.index') ? 'active' : '' }}">
+                    <a href="{{ route('designation.index') }}" class="nav-link {{ Route::is('designation.index') || Route::is('designation.create')? 'active' : '' }}">
                         <i class="fa fa-star"></i>
                         <p>Designations</p>
                     </a>
