@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DesignationController;
+use App\Http\Controllers\Dashboard\TagController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,5 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
     Route::resource('designation', DesignationController::class);
+    Route::resource('tag', TagController::class);
 });

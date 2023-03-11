@@ -20,9 +20,16 @@
                 </li>
                 <li class="nav-header">Features</li>
                 <li class="nav-item">
-                    <a href="{{ route('designation.index') }}" class="nav-link {{ Route::is('designation.index') || Route::is('designation.create')? 'active' : '' }}">
+                    <a href="{{ route('designation.index') }}" class="nav-link {{ Route::is('designation.index') || Route::is('designation.create') || Route::is('designation.edit') ? 'active' : '' }}">
                         <i class="fa fa-star"></i>
                         <p>Designations</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('tag.index') }}" class="nav-link {{ Route::is('tag.index') || Route::is('tag.create') || Route::is('tag.edit') ? 'active' : '' }}">
+                        <i class="fa fa-star"></i>
+                        <p>Tags</p>
                     </a>
                 </li>
             </ul>
