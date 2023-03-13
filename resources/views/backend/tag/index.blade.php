@@ -45,7 +45,7 @@
                                             <div class="btn-group">
                                                 <a href="{{ route('tag.edit', $tag->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
 
-                                                <button type="submit" class="btn btn-danger"><i
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
                                         </form>

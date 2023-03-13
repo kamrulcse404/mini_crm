@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="company_city">Company Name</label>
+                                    <label for="company_city">Company City</label>
                                     <input type="text" class="form-control" id="company_city" name="company_city"
                                         value="{{ old('company_city') }}" placeholder="Enter Company City">
                                     @error('company_city')
@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="company_tin">Company Name</label>
+                                    <label for="company_tin">Company Tin</label>
                                     <input type="text" class="form-control" id="company_tin" name="company_tin"
                                         value="{{ old('company_tin') }}" placeholder="Enter Company Tin">
                                     @error('company_tin')

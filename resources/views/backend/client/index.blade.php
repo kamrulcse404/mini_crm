@@ -53,7 +53,7 @@
 
                                                 <a href="{{ route('client.show', $client->id) }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
 
-                                                <button type="submit" class="btn btn-danger"><i
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
                                         </form>

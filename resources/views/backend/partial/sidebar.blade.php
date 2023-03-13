@@ -39,6 +39,14 @@
                         <p>Clients</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('employee.index') }}" class="nav-link {{ Route::is('employee.index') || Route::is('employee.create') || Route::is('employee.edit') || Route::is('employee.show') ? 'active' : '' }}">
+                        <i class="fa fa-users"></i>
+                        <p>Employees</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

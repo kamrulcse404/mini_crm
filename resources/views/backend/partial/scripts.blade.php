@@ -96,7 +96,7 @@
     <!-- Sweet alert end -->
 
 
-    <!-- client image preview -->
+    <!-- client & employee image preview -->
     <script>
         var imageFile = function(event) {
             var image = document.getElementById('client_image');
@@ -105,5 +105,13 @@
                 URL.revokeObjectURL(image.src) // free memory
             }
         };
+
+        var employeeImageFile = function(event) {
+            var image = document.getElementById('employee_image_preview');
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.onload = function() {
+                URL.revokeObjectURL(image.src) // free memory
+            }
+        };
     </script>
-    <!-- client image preview end -->
+    <!-- client & employee image preview end -->
