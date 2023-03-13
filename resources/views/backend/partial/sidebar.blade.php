@@ -32,6 +32,13 @@
                         <p>Tags</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('client.index') }}" class="nav-link {{ Route::is('client.index') || Route::is('client.create') || Route::is('client.edit') || Route::is('client.show') ? 'active' : '' }}">
+                        <i class="fa fa-users"></i>
+                        <p>Clients</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

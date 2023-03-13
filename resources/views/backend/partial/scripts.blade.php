@@ -83,6 +83,7 @@
         });
     </script>
 
+    <!-- Sweet alert -->
     @if (Session::has('success'))
         <script>
             swal("Great Job !!", "{{ Session::get('success') }}", 'success', {
@@ -92,3 +93,17 @@
             });
         </script>
     @endif
+    <!-- Sweet alert end -->
+
+
+    <!-- client image preview -->
+    <script>
+        var imageFile = function(event) {
+            var image = document.getElementById('client_image');
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.onload = function() {
+                URL.revokeObjectURL(image.src) // free memory
+            }
+        };
+    </script>
+    <!-- client image preview end -->

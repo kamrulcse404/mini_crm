@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\DesignationController;
 use App\Http\Controllers\Dashboard\TagController;
 use App\Http\Controllers\ProfileController;
@@ -35,4 +36,5 @@ require __DIR__.'/auth.php';
 Route::middleware('auth')->group(function () {
     Route::resource('designation', DesignationController::class);
     Route::resource('tag', TagController::class);
+    Route::resource('client', ClientController::class);
 });
