@@ -39,4 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('tag', TagController::class);
     Route::resource('client', ClientController::class);
     Route::resource('employee', EmployeeController::class);
+
+    // pdf
+    // Route::get('client/generate-pdf/{$id}', [ClientController::class, 'createPDF'])->name('client.pdf');
 });

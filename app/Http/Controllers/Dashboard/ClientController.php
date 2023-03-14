@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class ClientController extends Controller
 {
@@ -67,7 +70,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        $client = Client::find($id);
+        return view('backend.client.show', compact('client'));
     }
 
     /**
@@ -127,4 +131,14 @@ class ClientController extends Controller
         Client::Where('id', $id)->delete();
         return redirect()->route('client.index')->with('success', 'Client deleted successfully !!');
     }
+
+    // public function createPDF($id) {
+    //     $client = Client::find($id);
+    //     // share data to view
+    //     view()->share('backend.client.show',$client);
+    //     // $pdf = PDF::loadView('pdf_view', $data);
+    //     $pdf = DomPDFPDF::loadView('pdf_view', $client);
+    //     // download PDF file with download method
+    //     return $pdf->download('pdf_file.pdf');
+    // }
 }

@@ -139,7 +139,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> New Client</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Update Client</button>
                     </form>
                 </div>
                 <!-- /.card-body -->
