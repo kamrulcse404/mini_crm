@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\DesignationController;
 use App\Http\Controllers\Dashboard\EmployeeController;
+use App\Http\Controllers\Dashboard\ProjectController;
 use App\Http\Controllers\Dashboard\TagController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('tag', TagController::class);
     Route::resource('client', ClientController::class);
     Route::resource('employee', EmployeeController::class);
+    Route::resource('project', ProjectController::class);
 
     // pdf
     // Route::get('client/generate-pdf/{$id}', [ClientController::class, 'createPDF'])->name('client.pdf');

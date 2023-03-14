@@ -9,7 +9,7 @@
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('client.index') }}">Client List</a></li>
-                <li class="breadcrumb-item active">New </li>
+                <li class="breadcrumb-item active">Edit Client</li>
             </ol>
         </div><!-- /.col -->
     </div><!-- /.row -->

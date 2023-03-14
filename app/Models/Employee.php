@@ -15,4 +15,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Designation::class);
     }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }

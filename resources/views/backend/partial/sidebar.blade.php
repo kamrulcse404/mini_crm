@@ -47,6 +47,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('project.index') }}" class="nav-link {{ Route::is('project.index') || Route::is('project.create') || Route::is('project.edit') || Route::is('project.show') ? 'active' : '' }}">
+                        <i class="fa fa-bars"></i>
+                        <p>Projects</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

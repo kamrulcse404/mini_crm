@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
-use PDF;
-
 
 class ClientController extends Controller
 {
