@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEmployeeRequest;
-use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Designation;
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -68,8 +67,10 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
+        // dd('hello');
+        $employee = Employee::find($id);
         $designations = Designation::all();
         return view('backend.employee.edit', compact('employee', 'designations'));
     }
@@ -81,9 +82,29 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(Request $request, $id)
     {
-        $formRequest = $request->validated();
+        // $formRequest = $request->validated();
+
+        $formRequest = $request->validate([
+            'name' => 'required',
+            'email' => "required|unique:employees,email,".$id,
+            'phone' => "required|unique:employees,phone,".$id,
+            'designation_id' => 'required',
+        ]);
+
+        if ($request->hasFile('employee_image')) {
+            $formRequest = $request->validate([
+                'employee_image' => 'mimes:jpeg,png,jpg',
+            ]);
+
+            $newImage = time() . '-' . $request->employee_image->getClientOriginalName();
+            $request->employee_image->move(public_path('images'), $newImage);
+            $formRequest['employee_image'] = $newImage;
+        }
+
+        Employee::where('id', $id)->update($formRequest);
+        return redirect()->route('employee.index')->with('success', 'Employee updated successfully !!');
     }
 
     /**
@@ -92,9 +113,9 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($id)
     {
-        $employee->delete();
+        Employee::Where('id', $id)->delete();
         return redirect()->route('employee.index')->with('success', 'Employee deleted successfully !!');
     }
 }

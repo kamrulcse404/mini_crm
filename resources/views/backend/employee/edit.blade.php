@@ -26,8 +26,9 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('employee.update', $employee->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
