@@ -78,7 +78,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::find($id);
+        return view('backend.client.edit', compact('client'));
     }
 
     /**
@@ -90,7 +91,29 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formRequest = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:clients,email,'.$id,
+            'phone_number' => 'required|numeric|unique:clients,phone_number,'.$id,
+            'company_name' => 'required',
+            'company_address' => 'required',
+            'company_city' => 'required',
+            'company_zip' => 'required||numeric',
+            'company_tin' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $formRequest = $request->validate([
+                'image' => 'mimes:jpeg,png,jpg',
+            ]);
+
+            $newImage = time() . '-' . $request->image->getClientOriginalName();
+            $request->image->move(public_path('images'), $newImage);
+            $formRequest['image'] = $newImage;
+        }
+
+        Client::where('id', $id)->update($formRequest);
+        return redirect()->route('client.index')->with('success', 'Client updated successfully !!');
     }
 
     /**
