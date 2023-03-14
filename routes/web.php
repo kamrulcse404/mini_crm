@@ -39,13 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('tag', TagController::class);
     Route::resource('client', ClientController::class);
     Route::resource('employee', EmployeeController::class);
-
-    //employee
-    // Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
-    // Route::post('employee', [EmployeeController::class, 'store'])->name('employee.store');
-    // Route::get('employee/create', [EmployeeController::class, 'create'])->name('employee.create');
-    // Route::get('employee/{id}', [EmployeeController::class, 'show'])->name('employee.show');
-    // Route::put('employee/{id}', [EmployeeController::class, 'update'])->name('employee.update');
-    // Route::delete('employee/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
-    // Route::get('employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
 });

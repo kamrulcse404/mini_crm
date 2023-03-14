@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('company_city');
             $table->string('company_zip');
             $table->string('company_tin');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

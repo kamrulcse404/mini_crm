@@ -78,8 +78,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="company_address	">Company Address</label>
-                                    <input type="text" class="form-control" id="company_address	" name="company_address	"
-                                        value="{{ old('company_address	') }}" placeholder="Enter Company Address">
+                                    <input type="text" class="form-control" id="company_address	" name="company_address"
+                                        value="{{ old('company_address') }}" placeholder="Enter Company Address">
                                     @error('company_address ')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
@@ -101,8 +101,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="company_zip	">Company Zip</label>
-                                    <input type="text" class="form-control" id="company_zip	" name="company_zip	"
-                                        value="{{ old('company_zip	') }}" placeholder="Enter Company Zip">
+                                    <input type="text" class="form-control" id="company_zip	" name="company_zip"
+                                        value="{{ old('company_zip') }}" placeholder="Enter Company Zip">
                                     @error('company_zip ')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
@@ -131,9 +131,6 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <img id="client_image" style="width: 100px; height: auto" />

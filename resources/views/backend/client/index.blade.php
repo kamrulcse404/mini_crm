@@ -51,7 +51,7 @@
                                             <div class="btn-group">
                                                 <a href="{{ route('client.edit', $client->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
 
-                                                <a href="{{ route('client.show', $client->id) }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ route('client.show', $client->id) }}" class="btn btn-secondary"><i class="fa fa-eye"></i></a>
 
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i
                                                         class="fa fa-trash"></i></button>
