@@ -40,11 +40,11 @@ class ClientController extends Controller
         $formRequest = $request->validate([
             'name' => 'required',
             'email' => 'required|unique:clients',
-            'phone_number' => 'required||numeric|unique:clients',
+            'phone_number' => 'required|numeric|unique:clients',
             'company_name' => 'required',
             'company_address' => 'required',
             'company_city' => 'required',
-            'company_zip' => 'required||numeric',
+            'company_zip' => 'required|numeric',
             'company_tin' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg',
         ]);

@@ -25,4 +25,8 @@ class Project extends Model
     {
         return $this->belongsToMany(Employee::class);
     }
+
+    public function setDeadlineAttribute( $value ) {
+        $this->attributes['deadline'] = date( 'Y-m-d', strtotime( $value ) );
+    }
 }
