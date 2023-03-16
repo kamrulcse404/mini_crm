@@ -78,7 +78,11 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clients = Client::all();
+        $tags = Tag::all();
+        $employees = Employee::all();
+        $project = Project::find($id);
+        return view('backend.project.edit', compact('clients', 'tags', 'employees', 'project'));
     }
 
     /**
@@ -90,7 +94,24 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formRequest = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'client_id' => 'required',
+            'tag_id' => 'required',
+            'deadline' => 'required',
+        ]);
+
+        Project::Where('id', $id)->update($formRequest);
+        if ($request->has('employee_id')) {
+            $formRequest = $request->validate([
+                'employee_id' => 'required',
+            ]);
+        }
+        $formRequest['employee_id'] = $request->employee_id;
+        $project = Project::find($id);
+        $project->employees()->sync($formRequest['employee_id']);
+        return redirect()->route('project.index')->with('success', 'Project updated successfully !!');
     }
 
     /**
@@ -101,6 +122,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::find($id);
+        $project->employees()->detach();
+        $project->delete();
+        return redirect()->route('project.index')->with('success', 'Project deleted successfully !!');
     }
 }

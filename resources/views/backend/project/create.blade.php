@@ -87,12 +87,14 @@
                                 <div class="form-group">
                                     <label>Deadline</label>
                                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" name="deadline" class="form-control datetimepicker-input"
+                                        <input type="date" name="deadline" class="form-control"
+                                            placeholder="Project Deadline" />
+                                        {{-- <input type="text" name="deadline" class="form-control datetimepicker-input"
                                             placeholder="Project Deadline" data-target="#reservationdate" />
                                         <div class="input-group-append" data-target="#reservationdate"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     @error('deadline')
                                         <p class="text-danger">{{ $message }}</p>

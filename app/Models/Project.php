@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'title', 'description', 'client_id', 'tag_id', 'deadline' ];
+    protected $fillable = ['title', 'description', 'client_id', 'tag_id', 'deadline'];
 
     public function tag()
     {
@@ -26,7 +26,8 @@ class Project extends Model
         return $this->belongsToMany(Employee::class);
     }
 
-    public function setDeadlineAttribute( $value ) {
-        $this->attributes['deadline'] = date( 'Y-m-d', strtotime( $value ) );
+    public function setDeadlineAttribute($value)
+    {
+        $this->attributes['deadline'] = date('Y-m-d', strtotime($value));
     }
 }

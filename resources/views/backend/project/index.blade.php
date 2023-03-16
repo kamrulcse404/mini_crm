@@ -53,6 +53,8 @@
                                             <div class="btn-group">
                                                 <a href="{{ route('project.edit', $project->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
 
+                                                <a href="{{ route('project.show', $project->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+
                                                 <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure?')"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
