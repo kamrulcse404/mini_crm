@@ -30,4 +30,9 @@ class Project extends Model
     {
         $this->attributes['deadline'] = date('Y-m-d', strtotime($value));
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

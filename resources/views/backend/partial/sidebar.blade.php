@@ -54,6 +54,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('task.index') }}" class="nav-link {{ Route::is('task.index') || Route::is('task.create') || Route::is('task.edit') || Route::is('task.show') ? 'active' : '' }}">
+                        <i class="fa fa-bars"></i>
+                        <p>Task</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -67,7 +67,9 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::find($id);
+        // dd($project);
+        return view('backend.project.show', compact('project'));
     }
 
     /**
