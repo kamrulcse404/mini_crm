@@ -48,9 +48,6 @@
                                     <label for="project_id">Project Name</label>
                                     <select class="form-control" id="project_id" name="project_id">
                                         <option>--Select--</option>
-                                        @foreach ($projects as $project)
-                                            <option value="{{ $project->id }}">{{ $project->title }}</option>
-                                        @endforeach
                                     </select>
                                     @error('project_id')
                                         <p class="text-danger">{{ $message }}</p>
@@ -65,10 +62,7 @@
                                     <label for="employee_id">Assign Employee</label>
                                     <select class="js-example-basic-multiple form-control" id="employee_id"
                                         name="employee_id[]" multiple="multiple">
-                                        @foreach ($employees as $employee)
-                                            <option value="{{ $employee->id }}">{{ $employee->name }} |
-                                                {{ $employee->designation->name }}</option>
-                                        @endforeach
+                                        <option>--Select--</option>
                                     </select>
                                     @error('employee_id')
                                         <p class="text-danger">{{ $message }}</p>
@@ -128,7 +122,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> New Project</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> New Task</button>
                     </form>
                 </div>
                 <!-- /.card-body -->
@@ -138,3 +132,5 @@
         <!-- /.col -->
     </div>
 @endsection
+
+

@@ -131,22 +131,27 @@
                         </div>
                     </div>
                     <div class="row justify-content-md-center">
-                        <div class="col-md-6 mt-3">
+                        <div class="col-md-12 mt-3">
                             <table class="table">
                                 <tr>
-                                    <th>Client ID: </th>
-                                    <td>{{ $project->client->id }}</td>
+                                    <th>Employee ID </th>
+                                    <th>Name </th>
+                                    <th>Email </th>
+                                    <th>Phone </th>
+                                    <th>Designation </th>
                                 </tr>
+                                @foreach ($employees as $employee)
+                                    <tr>
+                                        <td>{{ $employee->id }}</td>
+                                        <td>{{ $employee->name }}</td>
+                                        <td>{{ $employee->email }}</td>
+                                        <td>{{ $employee->phone }}</td>
+                                        <td>{{ $employee->designation->name }}</td>
+                                    </tr>
+                                @endforeach
                             </table>
                         </div>
-                        <div class="col-md-6 mt-3">
-                            <table class="table">
-                                <tr>
-                                    <th>Client Name: </th>
-                                    <td>{{ $project->client->name }}</td>
-                                </tr>
-                            </table>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- /.card-body -->

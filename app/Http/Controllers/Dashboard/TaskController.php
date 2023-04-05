@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
+use App\Models\Project;
+use App\Models\Tag;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -26,7 +29,9 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all();
+        $clients = Client::all();
+        return view('backend.task.create', compact('tags', 'clients'));
     }
 
     /**
@@ -83,5 +88,12 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getSubcategories($id)
+    {
+        $projects = Project::where('client_id', $id)->get();
+
+        return response()->json($projects);
     }
 }

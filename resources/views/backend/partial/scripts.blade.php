@@ -62,6 +62,7 @@
     <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+
     <!-- Page specific script -->
     <script>
         $(function() {
@@ -142,3 +143,26 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+    $('#client_id').on('change', function() {
+        var id_client = $(this).val();
+        if(id_client) {
+            $.ajax({
+                url: '/getprojects/'+id_client,
+                type: "GET",
+                dataType: "json",
+                success:function(data) {
+                    $('#project_id').empty();
+                    $.each(data, function(key, value) {
+                        $('#project_id').append('<option value="'+ value.id +'">'+ value.title +'</option>');
+                    });
+                }
+            });
+        }else{
+            $('#project_id').empty();
+        }
+    });
+});
+</script>

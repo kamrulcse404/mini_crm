@@ -30,4 +30,9 @@ class Task extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    public function setDeadlineAttribute($value)
+    {
+        return $this->attributes['deadline'] = date('Y-m-d', strtotime($value));
+    }
 }

@@ -44,6 +44,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('project', ProjectController::class);
     Route::resource('task', TaskController::class);
 
-    // pdf
-    // Route::get('client/generate-pdf/{$id}', [ClientController::class, 'createPDF'])->name('client.pdf');
+    Route::get('getprojects/{id}', 'TaskController@getProjects');
 });
