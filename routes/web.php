@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ClientController;
+use App\Http\Controllers\Dashboard\DependController;
 use App\Http\Controllers\Dashboard\DesignationController;
 use App\Http\Controllers\Dashboard\EmployeeController;
 use App\Http\Controllers\Dashboard\ProjectController;
@@ -44,5 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('project', ProjectController::class);
     Route::resource('task', TaskController::class);
 
-    Route::get('getprojects/{id}', 'TaskController@getProjects');
+    Route::get('getprojects/{id}', [DependController::class, 'getProjects']);
+    Route::get('getemployees/{id}', [DependController::class, 'getEmployees']);
 });

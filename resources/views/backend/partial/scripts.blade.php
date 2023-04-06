@@ -166,3 +166,30 @@
     });
 });
 </script>
+
+<script>
+    $(document).ready(function() {
+    $('#project_id').on('change', function() {
+        var id_project = $(this).val();
+        if (id_project) {
+            $.ajax({
+                url: '/getemployees/' + id_project,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $('#employee_id').empty();
+                    $.each(data, function(key, value) {
+                        var employee = value;
+                        if (typeof value === 'object') {
+                            employee = value.name; 
+                        }
+                        $('#employee_id').append('<option value="' + key + '">' + employee + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('#employee_id').empty();
+        }
+    });
+});
+</script>

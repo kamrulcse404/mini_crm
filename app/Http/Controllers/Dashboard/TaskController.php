@@ -90,10 +90,4 @@ class TaskController extends Controller
         //
     }
 
-    public function getSubcategories($id)
-    {
-        $projects = Project::where('client_id', $id)->get();
-
-        return response()->json($projects);
-    }
 }
