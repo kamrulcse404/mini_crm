@@ -153,6 +153,38 @@
                         </div>
                         
                     </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-12">
+                            <h4 class="text-center text-muted p-2" style="background-color: azure;">Task Information
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-6 mt-3">
+                            <table class="table">
+                                <tr>
+                                    <th>Task ID: </th>
+                                    <td>{{ $task->id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Task Title: </th>
+                                    <td>{{ $task->task_title }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <table class="table">
+                                <tr>
+                                    <th>Task Details: </th>
+                                    <td>{{ $task->task_description }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Deadline: </th>
+                                    <td>{{ $task->deadline }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
