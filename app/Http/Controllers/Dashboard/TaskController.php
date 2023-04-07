@@ -103,7 +103,10 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::find($id);
+        $task->employees()->detach();
+        $task->delete();
+        return redirect()->route('task.index')->with('success', 'Task deleted successfully !!');
     }
 
 }
