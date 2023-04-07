@@ -53,8 +53,9 @@ class ProjectController extends Controller
             'employee_id' => 'required',
         ]);
 
+        dd($formRequest['employee_id']);
+
         $project = Project::create($formRequest);
-        // dd($formRequest['deadline']);
         $project->employees()->attach($formRequest['employee_id']);
         return redirect()->route('project.index')->with('success', 'Project created successfully !!');
     }

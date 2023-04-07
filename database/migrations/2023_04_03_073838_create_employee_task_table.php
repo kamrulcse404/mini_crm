@@ -15,9 +15,17 @@ return new class extends Migration
     {
         Schema::create('employee_task', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->constrained();
-            $table->foreignId('employee_id')->constrained();
+            // $table->foreignId('task_id')->constrained();
+            // $table->foreignId('employee_id')->constrained();
+
+            $table->unsignedBigInteger('task_id');
+            $table->unsignedBigInteger('employee_id');
             $table->timestamps();
+
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+
+            // $table->primary(['task_id', 'employee_id']);
         });
     }
 

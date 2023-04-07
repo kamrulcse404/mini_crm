@@ -42,7 +42,23 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $formRequest = $request->validate([
+            'client_id' => 'required',
+            'project_id' => 'required',
+            'employee_id' =>  'required',
+            'task_title' => 'required',
+            'task_description' => 'required',
+            'deadline' => 'required',
+            'tag_id' => 'required',
+        ]);
+
+        // dd($formRequest['employee_id']);
+
+        $task = Task::create($formRequest);
+
+        $task->employees()->attach( $formRequest['employee_id']);
+        return redirect()->route('task.index')->with('success', 'Task created successfully !!');
     }
 
     /**

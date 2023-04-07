@@ -182,6 +182,7 @@
                         var employee = value;
                         if (typeof value === 'object') {
                             employee = value.name; 
+                            key = key + 1; 
                         }
                         $('#employee_id').append('<option value="' + key + '">' + employee + '</option>');
                     });
