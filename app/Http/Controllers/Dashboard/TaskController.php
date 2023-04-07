@@ -69,7 +69,10 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $task = Task::find($id);
+        $employees = $task->employees()->get();
+        // dd($task);
+        return view('backend.task.show', compact('task', 'employees'));
     }
 
     /**
