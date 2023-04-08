@@ -93,13 +93,6 @@
                                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                         <input type="date" name="deadline" class="form-control"
                                             placeholder="Project Deadline" value="{{ $project->deadline }}" />
-                                        {{-- <input type="text" name="deadline" class="form-control datetimepicker-input"
-                                            placeholder="Project Deadline" data-target="#reservationdate"
-                                            value="{{ $project->deadline }}" />
-                                        <div class="input-group-append" data-target="#reservationdate"
-                                            data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div> --}}
                                     </div>
                                     @error('deadline')
                                         <p class="text-danger">{{ $message }}</p>

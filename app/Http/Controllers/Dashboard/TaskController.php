@@ -50,7 +50,7 @@ class TaskController extends Controller
             'task_title' => 'required',
             'task_description' => 'required',
             'deadline' => 'required',
-            'tag_id' => 'required',
+            'tag_id' => 'required|not_in:--Select--',
         ]);
 
         // dd($formRequest['employee_id']);
@@ -83,7 +83,10 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::find($id);
+        $tags = Tag::all();
+        $clients = Client::all();
+        return view('backend.task.edit', compact('task', 'tags', 'clients'));
     }
 
     /**
