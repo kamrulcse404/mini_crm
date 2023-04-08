@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ClientController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DependController;
 use App\Http\Controllers\Dashboard\DesignationController;
 use App\Http\Controllers\Dashboard\EmployeeController;
@@ -25,9 +26,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('backend.dashboard.home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('backend.dashboard.home');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('employee', EmployeeController::class);
     Route::resource('project', ProjectController::class);
     Route::resource('task', TaskController::class);
+
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::get('getprojects/{id}', [DependController::class, 'getProjects']);
     Route::get('getemployees/{id}', [DependController::class, 'getEmployees']);
